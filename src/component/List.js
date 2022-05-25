@@ -206,6 +206,19 @@ class List extends Component {
     />
   </div>
   <div className="form-group">
+    <label htmlFor="exampleInputEmail2">OldPrice</label>
+    <input
+      type="text"
+      name="price"
+      onChange = {this.onChange}
+      value={this.state.OldPrice}
+      className="form-control"
+      id="exampleInputEmail2"
+      aria-describedby="emailHelp"
+      placeholder="Enter price"
+    />
+  </div>
+  <div className="form-group">
     <label>Image</label>
     <input
       type="file"
@@ -247,7 +260,7 @@ class List extends Component {
             </div>
           </div>
           
-          <button className="btn btn-primary" onClick={() =>this.showEditProduct(product.id)}>
+          <button className="btn btn-light action-button" role="button" href="#" onClick={() =>this.showEditProduct(product.id)}>
             Edit
           </button>
           <button className="btn btn-danger" onClick={() =>this.onDelete(product.id)}>
