@@ -1,18 +1,19 @@
 import './App.css';
 import React, { Component } from 'react';
-import axios from 'axios';
+//import axios from 'axios';
 //import Header from './component/Header';
 //import List from './component/List';
-import News from './BaiKT/Header';
-//import Content from './BaiKT/content';
-import {Route , Switch , Link, BrowserRouter }from 'react-router-dom';
+import Header from './BaiKT/Header';
+//import News from './BaiKT/News';
+import {Route , Switch , BrowserRouter }from 'react-router-dom';
 import routes from './routes1';
 class App extends Component {
  
   render() {
     return (
        <BrowserRouter>
-       <News></News>
+       <Header></Header>
+       
        <Switch>
         
          {routes.map((route,index)=>(
