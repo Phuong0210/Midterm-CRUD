@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-//import {toast} from 'react-toastify';
-// import Formnhap from './Formnhap';
-// import Formnhap from './Formnhap';
+import Content from './content';
 class Home extends Component {
    constructor(props) {
       super(props);
@@ -83,68 +81,56 @@ class Home extends Component {
     
   render(){
     return (
- 
-        <div className=''>
+      <div className="row">
+        <><h3><i class="bi bi-globe2"></i>THẾ GIỚI</h3></>   
+      <div className="col-md-6">
+      <div className="card" style={{ width: "" }}>
+
+        <br></br>
         
-        
-          
-           {  this.state.news2.map((news2s) =>(
-        
-        
-        <div className="row">
-        <div className="col-md-8">
-          <div className="pb-3">
-            <h1>THẾ GIỚI</h1>
-          </div>
-          <div className="row">
-            <div className="col-md-6">
-            <img className="card-img-top" src={"./"+news2s.image} alt="Card image cap" />
+      <img className="card-img-top" src={"images/tq.jpg"} alt="Card image cap" />
                 <div className="card-body">
-                <h5 className="card-title">{news2s.title}</h5>
+                <h5 className="card-title">Học sinh tiểu học Trung Quốc phải tập trung học ‘tư tưởng Tập Cận Bình’</h5>
                   <div className="row">
                     <div className="col-6">
-                        {
-                          news2s.datecreate
-                        }
+                          2022-05-27 T11:43
                     </div>
                     <div className="col-6">
-                        {
-                          news2s.author
-                        }
+                          L.V.T
                     </div>
                   </div>
-                  <h8 className="card-title">{news2s.content}</h8>
-                </div>
-                </div>
-            <div className="col-md-6">
-            <img className="card-img-top" src={"./"+news2s.image} alt="Card image cap" />
-                <div className="card-body">
-                <h5 className="card-title">{news2s.title}</h5>
-                  <div className="row">
-                    <div className="col-6">
-                        {
-                          news2s.datecreate
-                        }
-                    </div>
-                    <div className="col-6">
-                        {
-                          news2s.author
-                        }
-                    </div>
+                  <h8 className="card-title">Cùng với việc loại bỏ các nội dung có thể bị ảnh hưởng bởi phương Tây, các trường học Trung Quốc từ cấp tiểu học được chính quyền yêu cầu phải tập trung học ‘tư tưởng Tập Cận Bình’.</h8>
                   </div>
-                  <h8 className="card-title">{news2s.content}</h8>
-                </div>
-            </div>
           </div>
-        </div>
-        <div className="col-md-4">.col-md-4</div>
       </div>
-      
+      <div className="col-md-4">
+      {  this.state.news2.map((news2s) =>(
+                  <div className="card mb-3" style={{maxWidth: '450px'}}>
+                  <div className="row g-0">
+                    <div className="col-md-6">
+                      <img src={"./"+ news2s.image}className="img-fluid rounded-start" alt="..." />
+                    </div>
+                    <div className="col-md-6">
+                      <div className="card-body">
+                        <h6 className="card-title"><i className='bi bi-youtube'></i> {news2s.title}</h6>
+                        <p className="card-text"><small className="text-muted">Ngày đăng: {news2s.datecreate}</small></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          
+   
+     
+     
            ))}
            
-           </div>
-          
-                             
+           <br></br>
+          </div>
+      
+    
+  
+  <div className="col-md-2"><Content/></div>
+       </div>     
         );
   }
 }

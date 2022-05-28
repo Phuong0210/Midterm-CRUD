@@ -171,4 +171,22 @@
       border-radius: 50px;
   }
   /* //////////////////////////////////////////////////////////// */
- 
+.card{
+  width: 700px;
+}
+
+.news-img{
+  width: 200px;
+}
+.news-title{
+  float: left;
+}
+.bi{
+  color: rgb(81, 197, 243);
+}
+.bi-globe2{
+  font-size:20px;
+}
+.row{
+  padding-left: 20px;
+}

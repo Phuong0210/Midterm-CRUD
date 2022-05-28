@@ -4,7 +4,12 @@ class Contact extends Component {
 
     render() {
         return (
+            <>
             <p>contact</p>
+           
+            </>
+            
+            
         );
     }
 }

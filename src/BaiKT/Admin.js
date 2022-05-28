@@ -15,6 +15,7 @@ class Admin extends Component {
       title: '',
       image: '',
       content: '',
+      type: '',
       author: '',
       datecreate: ''
 
@@ -39,6 +40,7 @@ class Admin extends Component {
           title: data.title,
           image: data.image,
           content: data.content,
+          type: data.type,
           author: data.author,
           datecreate: data.datecreate
         });
@@ -81,6 +83,7 @@ class Admin extends Component {
       author: newss.author,
       content: newss.content,
       image: newss.image,
+      type: newss.type,
       datecreate: newss.datecreate,
     });
     document.getElementById('image-edit').style.display = 'block';
@@ -97,7 +100,7 @@ class Admin extends Component {
   onSave = (event) => {
     event.preventDefault();
     if (this.state.id === '') {
-      if (this.state.title !== '' && this.state.content !== '' && this.state.author !== '' && this.state.image !== '' && this.state.datecreate !== '') {
+      if (this.state.title !== '' && this.state.content !== '' && this.state.author !== '' && this.state.image !== '' && this.state.datecreate !== '' && this.state.type !== '') {
         axios({
           method: 'POST',
           url: `https://61c189b59dbcca0017c81f4a.mockapi.io/api/news`,
@@ -105,6 +108,7 @@ class Admin extends Component {
             title: this.state.title,
             author: this.state.author,
             content: this.state.content,
+            type: this.state.type,
             image: this.state.image,
             datecreate: this.state.datecreate,
           }
@@ -125,6 +129,7 @@ class Admin extends Component {
           title: this.state.title,
           author: this.state.author,
           content: this.state.content,
+          type: this.state.type,
           image: this.state.image,
           datecreate: this.state.datecreate,
         }
@@ -139,6 +144,7 @@ class Admin extends Component {
       title: '',
       image: '',
       content: '',
+      type:"",
       author: '',
       datecreate: ''
     });
@@ -175,9 +181,7 @@ class Admin extends Component {
             <form onSubmit={this.onSave}>
               <div className="form-group">
                 <label htmlFor="exampleInputEmail1">Title</label>
-                <input
-                  type="text"
-                  name="title"
+                <input type="text" name="title"
                   defaultValue={this.state.title}
                   onChange={this.onChange}
                   className="form-control"
@@ -193,6 +197,18 @@ class Admin extends Component {
                   name="content"
                   onChange={this.onChange}
                   defaultValue={this.state.content}
+                  className="form-control"
+                  id="exampleInputPassword1"
+                  placeholder="Content"
+                />
+                </div>
+                <div className="form-group">
+                <label htmlFor="exampleInputPassword1">Type</label>
+                <input
+                  type="text"
+                  name="type"
+                  onChange={this.onChange}
+                  defaultValue={this.state.type}
                   className="form-control"
                   id="exampleInputPassword1"
                   placeholder="Content"
@@ -251,6 +267,7 @@ class Admin extends Component {
                   <th>TITLE</th>
                   <th>IMAGE</th>
                   <th>CONTENT</th>
+                  <th>TYPE</th>
                   <th className='date-news'>AUTHOR</th>
                   <th className='date-news'>DATE</th>
                   <th>ACTION</th>
@@ -265,12 +282,16 @@ class Admin extends Component {
                       <td><img className="image-news" src={"./" + newss.image} alt="Card image cap" /></td>
                       <td><h8 className="card-title">{newss.content}</h8></td>
                       <td>{
+                      newss.type
+                      }</td>
+                        <td>{
                         newss.author
                       }</td>
                       <td>{
 
                         newss.datecreate
                       }</td>
+
                       <td><button className="btn btn-primary" role="button" href="#" onClick={() => this.showEditNews(newss.id)}>
                         Edit
                       </button>
