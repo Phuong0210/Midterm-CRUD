@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import { toast } from 'react-toastify';
+import Home from './Home';
 
 
 class Admin extends Component {
@@ -15,7 +16,7 @@ class Admin extends Component {
       title: '',
       image: '',
       content: '',
-      type: '',
+      type: 'TG',
       author: '',
       datecreate: ''
 
@@ -25,6 +26,7 @@ class Admin extends Component {
     this.showEditNews = this.showEditNews.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
   }
+ 
   componentDidMount() {
     var { match } = this.props;
     if (match) {
@@ -144,7 +146,7 @@ class Admin extends Component {
       title: '',
       image: '',
       content: '',
-      type:"",
+      type:"TG",
       author: '',
       datecreate: ''
     });
@@ -172,13 +174,15 @@ class Admin extends Component {
       }
     });
   }
+  
   render() {
-    console.log(this.state);
+    console.log(this.state)
     return (
+      
       <div className="container">
         <div className="row">
           <div className="col-3">
-            <form onSubmit={this.onSave}>
+            <form onSubmit={this.onSave} encType="multipart/form-data">
               <div className="form-group">
                 <label htmlFor="exampleInputEmail1">Title</label>
                 <input type="text" name="title"
@@ -204,15 +208,36 @@ class Admin extends Component {
                 </div>
                 <div className="form-group">
                 <label htmlFor="exampleInputPassword1">Type</label>
-                <input
-                  type="text"
-                  name="type"
-                  onChange={this.onChange}
-                  defaultValue={this.state.type}
-                  className="form-control"
-                  id="exampleInputPassword1"
-                  placeholder="Content"
-                />
+                <select
+                    type="option"
+                    name='type'
+                    defaultValue={this.state.news}
+                    onChange = {this.onChange}
+                    className="form-control"
+                    // id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                    placeholder="Enter name"
+                    >
+                      <option
+                       value="TG"
+                      className="form-control"
+                      type="option">
+                       TG
+                      </option>
+                      <option
+                      value="TC-KD">
+                      KT-TC
+                      </option>
+                      <option
+                      value="SPORT">
+                      SPORT
+                      </option>
+                      <option
+                      value="XE">
+                      CAR
+                      </option>
+                    </select>
+
               </div>
               <div className="form-group">
                 <label htmlFor="exampleInputEmail2">Author</label>
@@ -257,6 +282,9 @@ class Admin extends Component {
                 Submit
               </button>
             </form>
+            
+   
+ 
           </div>
           <div className="col-9">
             <h1>List news</h1>
@@ -310,8 +338,11 @@ class Admin extends Component {
         </div>
 
       </div>
+      
     );
   }
+  
 }
+
 
 export default Admin;

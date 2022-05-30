@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Content from './content';
+import About from './About';
 class Home extends Component {
    constructor(props) {
       super(props);
@@ -17,6 +18,8 @@ class Home extends Component {
       this.showEditProduct = this.showEditProduct.bind(this);
       this.componentDidMount = this.componentDidMount.bind(this);
     }
+  
+    
     componentDidMount() {
       var {match} = this.props;
       if (match) {
@@ -82,26 +85,30 @@ class Home extends Component {
   render(){
     return (
       <div className="row">
-        <><h3><i class="bi bi-globe2"></i>THẾ GIỚI</h3></>   
+        <><h3><i class="bi bi-globe2"></i>THẾ GIỚI</h3></>                   
       <div className="col-md-6">
+        {this.state.news2.filter(news2s=>news2s.type === "TG").map((news2s)=>(
       <div className="card" style={{ width: "" }}>
 
         <br></br>
         
-      <img className="card-img-top" src={"images/tq.jpg"} alt="Card image cap" />
+      <img className="card-img-top" src={"./"+ news2s.image} alt="Card image cap" />
                 <div className="card-body">
-                <h5 className="card-title">Học sinh tiểu học Trung Quốc phải tập trung học ‘tư tưởng Tập Cận Bình’</h5>
+                <h4 className="card-title">{news2s.title}</h4>
                   <div className="row">
                     <div className="col-6">
-                          2022-05-27 T11:43
+                    <p>Ngày đăng: {news2s.datecreate}</p>
                     </div>
                     <div className="col-6">
-                          L.V.T
+                  <p>{news2s.author}</p>
                     </div>
+                    
                   </div>
-                  <h8 className="card-title">Cùng với việc loại bỏ các nội dung có thể bị ảnh hưởng bởi phương Tây, các trường học Trung Quốc từ cấp tiểu học được chính quyền yêu cầu phải tập trung học ‘tư tưởng Tập Cận Bình’.</h8>
+                  
+                  <h8 className="card-title"> {news2s.content}</h8>
                   </div>
           </div>
+         )) }
       </div>
       <div className="col-md-4">
       {  this.state.news2.map((news2s) =>(
@@ -130,7 +137,9 @@ class Home extends Component {
     
   
   <div className="col-md-2"><Content/></div>
-       </div>     
+  <div className="tt"><About/></div>   
+       </div>
+            
         );
   }
 }

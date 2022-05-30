@@ -2,7 +2,6 @@ import './App.css';
 import React, { Component } from 'react';
 
 import Header from './BaiKT/Header';
-
 import {Route , Switch , BrowserRouter }from 'react-router-dom';
 import routes from './routes1';
 class App extends Component {
