@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
-class About extends Component {
+import Content from './Right-content';
+import About from '../About';
+class Home extends Component {
    constructor(props) {
       super(props);
       this.state={
@@ -45,7 +46,7 @@ class About extends Component {
       })
       
     }
-    getProduct = (id) => {
+    getNews = (id) => {
       for(var i=0; i<this.state.news2.length; i++) {
         if (this.state.news2[i].id === id) {
           return this.state.news2[i];
@@ -56,7 +57,7 @@ class About extends Component {
     
     }
     showEditProduct = (id) => {
-      var news2s = this.getProduct(id);
+      var news2s = this.getNews(id);
       this.setState({
         id: news2s.id,
       title: news2s.title,
@@ -84,9 +85,9 @@ class About extends Component {
   render(){
     return (
       <div className="row">
-        <><h3><i class="bi bi-graph-up-arrow"></i> TÀI CHÍNH - KINH DOANH</h3></>                   
+        <><h3><i class="bi bi-globe2"></i> THẾ GIỚI</h3></>                   
       <div className="col-md-6">
-        {this.state.news2.filter(news2s=>news2s.id === "4").map((news2s)=>(
+        {this.state.news2.filter(news2s=>news2s.id === "3").map((news2s)=>(
       <div className="card" style={{ width: "" }}>
 
         <br></br>
@@ -110,7 +111,7 @@ class About extends Component {
          )) }
       </div>
       <div className="col-md-4">
-      {  this.state.news2.filter(news2s=>news2s.type === "TC-KD").map((news2s)=>(
+      { this.state.news2.filter(news2s=>news2s.type === "TG").map((news2s)=>(
                   <div className="card mb-3" style={{maxWidth: '450px'}}>
                   <div className="row g-0">
                     <div className="col-md-6">
@@ -135,13 +136,15 @@ class About extends Component {
       
     
   
-  <div className="col-md-2"></div>
-       </div>     
+  <div className="col-md-2"><Content/></div>
+  <div className="tt"><About/></div>   
+       </div>
+            
         );
   }
 }
 
  
-export default About;
+export default Home;
  
 

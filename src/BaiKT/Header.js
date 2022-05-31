@@ -14,7 +14,7 @@ class Header extends Component {
                       <li className="nav-item" role="presentation"><Link to={'/About'} className="nav-link" href="#">ABOUT US</Link></li>
                       <li className="nav-item" role="presentation"><Link to={'/Admin'} className="nav-link" href="#">ADMIN</Link></li>
                       <li className="dropdown"><a className="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">NEWS</a>
-                        <div className="dropdown-menu" role="menu"><Link to={'/About'} className="nav-link" href="#">EDUCATION</Link><a className="dropdown-item" role="presentation" href="#">IDOLS</a><a className="dropdown-item" role="presentation" href="#">SPORT</a><a className="dropdown-item" role="presentation" href="#">FASHION</a></div>
+                        <div className="dropdown-menu" role="menu"><Link to={'/About'} className="nav-link" href="#">TC-KD</Link><Link to={'/'} className="nav-link" href="#">THẾ GIỚ</Link><a className="dropdown-item" role="presentation" href="#">SPORT</a><a className="dropdown-item" role="presentation" href="#">FASHION</a></div>
                       </li>
                     </ul>
                     <form className="form-inline mr-auto" target="_self">

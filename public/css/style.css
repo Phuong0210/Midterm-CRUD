@@ -185,8 +185,11 @@
   color: rgb(81, 197, 243);
 }
 .bi-globe2{
-  font-size:20px;
+  font-size:25px;
 }
 .row{
   padding-left: 20px;
+}
+.title-news{
+  text-decoration: none;
 }

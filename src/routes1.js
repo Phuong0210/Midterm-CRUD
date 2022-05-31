@@ -1,7 +1,8 @@
 import About from './BaiKT/About';
-import Home from './BaiKT/Home';
+import Home from './BaiKT/content/News2';
 import Contact from './BaiKT/Contact';
 import Admin from './BaiKT/Admin';
+
 
 import React from 'react';
 const routes = [{

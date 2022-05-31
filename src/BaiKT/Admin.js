@@ -3,8 +3,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import { toast } from 'react-toastify';
-import Home from './Home';
-
 
 class Admin extends Component {
 
@@ -226,7 +224,7 @@ class Admin extends Component {
                       </option>
                       <option
                       value="TC-KD">
-                      KT-TC
+                      TC-KD
                       </option>
                       <option
                       value="SPORT">
